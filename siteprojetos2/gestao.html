@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudoPro - Gestão Simples</title>
+    <link rel="stylesheet" href="gestaocss.css">
+    <script src="gestaojs.js" defer></script> 
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">EstudoPro</div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">📚 Tarefas</a>
+                <hr>
+                <a href="index.html" class="nav-item logout">🚪 Sair</a> 
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header-dash">
+                <h1>Organização Rápida</h1>
+                <div class="header-actions">
+                    <button class="btn-add" onclick="window.location.href='newtarefa.html'">➕ Nova Tarefa/Estudo</button>
+                </div>
+            </header>
+
+            <section class="overview-cards">
+                <div class="card tasks-card">
+                    <h3>Tarefas Pendentes</h3>
+                    <span class="count" id="pendingTasksCount">0</span>
+                    <p>Itens a serem concluídos</p>
+                </div>
+            </section>
+
+            <section class="study-planner-section">
+                <h2>📚 Minhas Tarefas e Estudos</h2>
+                <div class="tasks-list" id="tasksList">
+                    <p class="empty-list-msg">Nenhuma tarefa adicionada ainda. Clique em "➕ Nova Tarefa/Estudo" para começar!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
