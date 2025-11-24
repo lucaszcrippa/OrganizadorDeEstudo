@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudoPro - Nova Tarefa</title>
+    <link rel="stylesheet" href="newtarefa.css"> 
+</head>
+<body>
+
+    <div class="task-page-container">
+        <header class="task-page-header">
+            <a href="gestao.html" class="back-btn">← Voltar para o Dashboard</a>
+            <h1>📝 Adicionar Novo Item</h1>
+        </header>
+
+        <section class="task-form-section">
+            <form id="newTaskForm">
+                <div class="form-group">
+                    <label for="taskDescription">Descrição da Tarefa/Estudo:</label>
+                    <input type="text" id="taskDescription" placeholder="O que precisa ser feito?" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskMateria">Matéria:</label>
+                        <input type="text" id="taskMateria" placeholder="Ex: Cálculo I, História" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskDueDate">Prazo:</label>
+                        <input type="date" id="taskDueDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="taskPriority">Prioridade:</label>
+                        <select id="taskPriority">
+                            <option value="high">Alta</option>
+                            <option value="medium" selected>Média</option>
+                            <option value="low">Baixa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Salvar e Voltar</button>
+            </form>
+        </section>
+    </div>
+    
+    <script src="newtarefa.js"></script>
+
+</body>
+</html>

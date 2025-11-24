@@ -1,0 +1,323 @@
+/* Arquivo: gestaocss.css */
+
+/* Importação da Fonte e Variáveis (Mantendo a consistência) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #5B48CC; /* Roxo */
+    --secondary-color: #8C7DEB; /* Roxo Claro */
+    --text-color: #333;
+    --light-bg: #F0F2F5; /* Fundo do dashboard */
+    --white: #FFFFFF;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--light-bg);
+}
+
+/* --- Layout Principal (Grid) --- */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* 250px para sidebar, o resto para conteúdo */
+    min-height: 100vh;
+}
+
+/* --- Sidebar (Barra Lateral) --- */
+.sidebar {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 30px 0;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    padding: 15px 30px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    border-left: 5px solid transparent;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+.nav-item.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    border-left-color: var(--secondary-color);
+}
+
+.sidebar hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 20px 30px;
+}
+
+.nav-item.logout {
+    margin-top: 10px;
+    color: #FFB3B3; 
+}
+
+/* --- Conteúdo Principal --- */
+.main-content {
+    padding: 30px;
+}
+
+.main-header-dash {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.main-header-dash h1 {
+    font-size: 2em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.header-actions .btn-add {
+    padding: 8px 15px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header-actions .btn-add:hover {
+    background-color: var(--primary-color);
+}
+
+
+/* --- Overview Cards --- */
+.overview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    text-align: left;
+}
+
+.card h3 {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Estilos específicos para o Card de Tarefas */
+.tasks-card .count {
+    font-size: 3em;
+    font-weight: 700;
+    color: #FF5722; /* Laranja para Urgência */
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* --- Seção de Estudos e Tarefas --- */
+.study-planner-section h2 {
+    font-size: 1.8em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.tasks-list {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow-light);
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.task-item label {
+    flex-grow: 1;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+/* ESTILO PARA TAREFAS CONCLUÍDAS */
+.task-item.completed label {
+    text-decoration: line-through;
+    color: #999;
+    font-style: italic;
+}
+.task-item.completed .due-date {
+    opacity: 0.5;
+}
+
+.due-date {
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* Cores de Prioridade */
+.high-priority .due-date {
+    background-color: #FFE5E5;
+    color: #FF4D4D;
+}
+
+.medium-priority .due-date {
+    background-color: #FFFBE5;
+    color: #FFC107;
+}
+
+.low-priority .due-date {
+    background-color: #E5F3FF;
+    color: #2196F3;
+}
+
+.empty-list-msg {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* --- Responsividade do Dashboard --- */
+@media (max-width: 992px) {
+    .dashboard-container {
+        grid-template-columns: 1fr; 
+    }
+
+    .sidebar {
+        padding: 20px;
+        position: relative;
+    }
+
+    .nav-menu {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .nav-item {
+        padding: 10px 15px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+
+    .nav-item.active {
+        border-bottom-color: var(--secondary-color);
+        border-left: none;
+    }
+    
+    .sidebar hr, .nav-item.logout {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
+    .main-header-dash {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    /* --- Ajustes na Estrutura da Tarefa --- */
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Garante que as ações fiquem à direita */
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Permite que o conteúdo cresça */
+}
+
+.task-item label {
+    flex-grow: 1;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: color 0.3s, text-decoration 0.3s;
+    word-break: break-word; /* Garante que textos longos quebrem */
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o prazo e a lixeira */
+    margin-left: 15px;
+}
+
+/* --- Botão de Exclusão (Lixeira) --- */
+.btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    opacity: 0.5; /* Deixa discreto */
+    transition: opacity 0.2s, color 0.2s;
+    padding: 5px;
+}
+
+.btn-delete:hover {
+    opacity: 1;
+    color: #cc0000; /* Vermelho ao passar o mouse */
+}
+}
